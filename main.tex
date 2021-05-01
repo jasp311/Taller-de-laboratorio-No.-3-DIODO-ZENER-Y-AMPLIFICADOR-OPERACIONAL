@@ -1,0 +1,125 @@
+\documentclass[journal]{IEEEtran}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amsthm, amsfonts}
+\usepackage{graphicx,amssymb}
+\usepackage{cite}
+\usepackage{epsfig}
+\usepackage[usenames]{color}
+\usepackage{listings}
+\usepackage{tabularx}
+\usepackage{multirow, array}
+\usepackage{colortbl}
+\usepackage{xcolor}
+\renewcommand{\refname}{Referencias}
+\usepackage{subfig}
+\usepackage{listings}
+\usepackage{booktabs}
+\usepackage{cite}
+\usepackage{float}
+\usepackage{longtable}
+\definecolor{anti-flashwhite}{rgb}{0.95, 0.95, 0.96}
+\renewcommand{\citedash}{ -- }
+
+\lstset{
+  backgroundcolor=\color{anti-flashwhite},
+  frame=single,
+  basicstyle=\footnotesize
+}
+
+\title{\LARGE \bf Taller de laboratorio No. 2:
+CONFIGURACIONES CON DIODOS
+}
+
+\author{\IEEEauthorblockN{~Andres  Felipe Aponte Lopez, Juan Nicolas Carvajal Barón,		Jaime Andrés Sanchez Peralta~ \\ \IEEEmembership{aapontel@unal.edu.co} {jncarvajalb@unal.edu.co} {jaasanchezpe@unal.edu.co} ~}\\
+
+\IEEEauthorblockA{Universidad Nacional de Colombia\\
+Facultad de Ingeniería\\
+Electrónica Análoga I\\
+ Colombia}
+}
+
+\renewcommand{\leftmark}{Taller de laboratorio No. 3:
+DIODO ZENER Y AMPLIFICADOR OPERACIONAL
+
+, Mayo 2021} 
+
+\begin{document}
+
+\maketitle
+
+\section{Marco teórico}
+
+\subsection{Diodos Zener}
+Son diodos que están diseñados para trabajar en la región
+de ruptura en la relación entre tensión corriente. Su funcionamiento se basa en que se puede polarizar en inverso, y a diferencia de los otros diodos, este conduce corriente si se tiene un nivel de tensión que es un valor casi constante.
+
+\subsection{Características diodo 1N4733}
+
+\begin{itemize}
+    \item $V_z$ = 5.1 V
+    \item $I_z$ = 49 mA
+    \item $I_{ZK}$ = 1 mA
+    \item $I_{Zmax}$ = 178 mA
+    \item $r_{z@I_{z}}$ = 7 $\Omega$
+    \item $r_{z@I_{zk}}$ = 550 $\Omega$
+    \item $P_{max}$ = 1 W
+\end{itemize}
+
+\textbf{Modelo Spice.}
+.model D1N4733 D(Is=1.214f Rs=1.078 Ikf=0 N=1 Xti=3
+Eg=1.11 + Cjo=185p M=.3509 Vj=.75 Fc=.5 Isr=2.601n
+Nr=2 Bv=5.1 Ibv=.70507 + Nbv=.74348 Ibvl=4.8274m
+Nbvl=6.7393 Tbv1=176.471u) * Motorola pid=1N4733
+case=DO-41 * 89-9-19 gjg * Vz = 5.1 @ 49mA, Zz = 175
+@1mA, Zz = 8.2 @5mA, Zz = 2.2 @20mA
+
+\subsection{Características diodo 1N4733}
+
+\begin{itemize}
+    \item $V_z$ = 8.2 V
+    \item $I_z$ = 31 mA
+    \item $I_{ZK}$ = 0.5 mA
+    \item $I_{Zmax}$ = 110 mA
+    \item $r_{z@I_{z}}$ = 4.5 $\Omega$
+    \item $r_{z@I_{zk}}$ = 700 $\Omega$
+    \item $P_{max}$ = 1 W
+\end{itemize}
+
+
+\textbf{Modelo Spice.}
+
+.model D1N4738 D(Is=2.102f Rs=2.5 Ikf=0 N=1 Xti=3
+Eg=1.11 Cjo=100p M=.3503 + Vj=.75 Fc=.5 Isr=2.252n
+Nr=2 Bv=8.2 Ibv=8 Nbv=.53621 + Ibvl=213.52u
+Nbvl=.17879 Tbv1=585.37u) * Motorola pid=1N4738
+case=DO-41 * 89-9-19 gjg * Vz = 8.2 @ 31mA, Zz = 16
+@ 1mA, Zz = 6.9 @ 5mA, Zz = 2.5 @ 20mA
+
+\subsection{Amplificador operacional}
+Son dispositivos de ganancia de energıa, diseñados con
+el fin de proporcionar la función de transferencia deseada.
+Este compuesto por dos entradas y una salida, donde la
+salida es la diferencia de las dos entradas multiplicado por
+una ganancia G: $V_{out}$ = G * (V+ - V-).
+
+
+\section{Cálculos}
+
+\subsection{Circuito 1}
+Asumiendo que $V_1 = V_z + 10$, calcule el valor de R2
+de tal manera que cuando $R_{1} = 0 \Omega$ corriente en el diodo
+cumpla $I_z < I_{zmax}$; y el valor de $R_1$ de tal manera que
+cuando $R_1 = R_{1max}$ la corriente en el diodo cumpla
+$I_z \simeq I_{zmin}$
+
+
+
+
+\section{Simulación}
+
+\section{Montaje experimental}
+
+
+
+\end{document}
